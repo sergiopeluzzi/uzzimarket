@@ -16,10 +16,7 @@ const User = conn.define('users', {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [6, 20]
-        }
+        allowNull: false
     },
     active: {
         type: DataTypes.BOOLEAN,
