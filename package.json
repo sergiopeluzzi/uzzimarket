@@ -2,10 +2,11 @@
   "name": "uzzimarket",
   "version": "1.0.0",
   "description": "Software to make market lists and share them",
-  "main": "server.js",
+  "main": "./src/server.js",
   "scripts": {
     "test": "npm run test",
-    "start": "nodemon server.js"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "keywords": [
     "market",
@@ -18,7 +19,10 @@
   "author": "Sergio Peluzzi",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-beta.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
