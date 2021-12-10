@@ -1,0 +1,19 @@
+{
+  "name": "uzzimarket",
+  "version": "1.0.0",
+  "description": "Software to make market lists and share them",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "market",
+    "uzzi",
+    "app",
+    "supermarket",
+    "food",
+    "drink"
+  ],
+  "author": "Sergio Peluzzi",
+  "license": "ISC"
+}
