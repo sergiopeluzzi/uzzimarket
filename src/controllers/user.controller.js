@@ -1,4 +1,3 @@
-const { json } = require('express/lib/response')
 const UserService = require('../services/user.service')
 
 const getUsers = async (req, res) => {
@@ -16,4 +15,14 @@ const createUsers = async (req, res) => {
     }
 }
 
-module.exports = { getUsers, createUsers }
+const login = async (req, res) => {
+    const { email, password } = req.body
+    const token = await UserService.authenticate({ email, password })
+    if (token) {
+        return res.status(200).json({ token })
+    } else {
+        return res.status(403).json({ msg: 'Acesso Negado' })
+    }
+}
+
+module.exports = { getUsers, createUsers, login }
