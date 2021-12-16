@@ -26,7 +26,7 @@ const showList = async (req, res) => {
     if (list) {
         return res.status(200).json({ list })
     } else {
-        return res.status(400).json({ msg: 'list not found' })
+        return res.status(401).json({ msg: 'list not found' })
     }
 }
 
@@ -40,19 +40,34 @@ const createItems = async (req, res) => {
     if (item) {
         return res.status(200).json({ item })
     } else {
-        return res.status(400).json({ msg: 'Failed to save Items' })
+        return res.status(401).json({ msg: 'Failed to save Items' })
     }
 }
 
 const getItems = async (req, res)  => {
     const id = req.params.id
-    const items = await ListService.getItems(id)
+    const userId = req.lUserId
+    const items = await ListService.getItems(id, userId)
 
     if(items) {
         return res.status(200).json({ items })
     } else {
-        return res.status(400).json({ msg: 'items not found' })
+        return res.status(404).json({ msg: 'items not found' })
     }
 }
 
-module.exports = { getLists, createLists, showList, createItems, getItems }
+const removeItem = async (req, res) => {
+    const listId = parseInt(req.params.id)
+    const itemId = parseInt(req.params.item)
+    const userId = req.lUserId
+
+    const item = await ListService.destroyItem(listId, itemId, userId)
+
+    if (item.message) {
+        return res.status(404).json({ msg: item.message  })
+    } else {
+        return res.status(200).json({ item })
+    }
+}
+
+module.exports = { getLists, createLists, showList, createItems, getItems, removeItem }

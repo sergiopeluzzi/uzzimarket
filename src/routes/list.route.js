@@ -9,5 +9,6 @@ router.post('/', auth, ListController.createLists)
 router.get('/:id', auth, ListController.showList)
 router.post('/:id/items', auth, ListController.createItems)
 router.get('/:id/items', auth, ListController.getItems)
+router.delete('/:id/item/:item', auth, ListController.removeItem)
 
 module.exports = router
