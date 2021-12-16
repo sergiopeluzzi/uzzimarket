@@ -1,9 +1,10 @@
 # Uzzi Market API
 
-### Description
+### DESCRIPTION
 <p> API for UzziMarket Web and UzziMarket App
+<p> All features is considering logged user to perform inserts, updates or deletes. Users can only modify your own lists and items
 
-### API Routes
+### API ROUTES
 | Route  | Method   | Description                          | Body                    |
 | :----- | :------: | :----------------------------------- | :---------------------- |
 | / | GET | There's nothing here | |
@@ -16,3 +17,4 @@
 | /lists/:id/items | GET | Returns JSON with items of list passed in params | |
 | /lists/:id/items | POST | Returns JSON with registered items saved to list passed in params | Array of items: { description, note (optional), qnt } |
 | /lists/:id/items/:item | DELETE | Returns a succesfull or fail deleting message | |
+
