@@ -7,5 +7,7 @@ const router = express.Router()
 router.get('/', auth, ListController.getLists)
 router.post('/', auth, ListController.createLists)
 router.get('/:id', auth, ListController.showList)
+router.post('/:id/items', auth, ListController.createItems)
+router.get('/:id/items', auth, ListController.getItems)
 
 module.exports = router

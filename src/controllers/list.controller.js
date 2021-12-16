@@ -21,7 +21,8 @@ const createLists = async (req, res) => {
 
 const showList = async (req, res) => {
     const id = req.params.id
-    const list = await ListService.showList(id)
+    const userId = req.lUserId
+    const list = await ListService.showList(id, userId)
     if (list) {
         return res.status(200).json({ list })
     } else {
@@ -29,4 +30,29 @@ const showList = async (req, res) => {
     }
 }
 
-module.exports = { getLists, createLists, showList }
+const createItems = async (req, res) => {
+    const id = req.params.id
+    const userId = req.lUserId
+    const { items } = req.body
+
+    const item = await ListService.createItems(items, id, userId)
+    
+    if (item) {
+        return res.status(200).json({ item })
+    } else {
+        return res.status(400).json({ msg: 'Failed to save Items' })
+    }
+}
+
+const getItems = async (req, res)  => {
+    const id = req.params.id
+    const items = await ListService.getItems(id)
+
+    if(items) {
+        return res.status(200).json({ items })
+    } else {
+        return res.status(400).json({ msg: 'items not found' })
+    }
+}
+
+module.exports = { getLists, createLists, showList, createItems, getItems }

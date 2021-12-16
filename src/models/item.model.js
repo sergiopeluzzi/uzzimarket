@@ -12,14 +12,14 @@ const Item = conn.define('items', {
         allowNull: true
     },
     qnt: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false,
         defaultValue: 1
     },
     checked: {
         type: DataTypes.BOOLEAN,
         allowNull: false, 
-        defaultValue: true
+        defaultValue: false
     },
 })
 
