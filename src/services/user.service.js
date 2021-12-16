@@ -1,7 +1,6 @@
 const User = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { BaseError } = require('sequelize/dist')
 
 const getUsers = async () => {
     const users = await User.findAll()

@@ -13,7 +13,6 @@ const auth = (req, res, next) => {
                 req.lUserId = data.id
                 req.lUserEmail = data.email
                 req.lUserName = data.name
-                console.log(data);
                 next()
             }
         })
